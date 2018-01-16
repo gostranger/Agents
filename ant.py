@@ -91,8 +91,7 @@ def equal(a,b):
 
 white = [255,255,255,255]
 black = [0,0,0,255]
-antt = ant(100,100)
-antt2 = ant(400,400)
+antt = ant(x_axis/2,y_axis/2)
 while(running):
 	for event in pygame.event.get():
         	if event.type == pygame.QUIT:
@@ -105,18 +104,10 @@ while(running):
 	elif equal(checkpixel(antt.getLoc()[0],antt.getLoc()[1]),black):
 		gfxdraw.pixel(screen,antt.getLoc()[0],antt.getLoc()[1],[255,255,255])
 		antt.Left()
-
-	antt2.Forward()
-	if equal(checkpixel(antt2.getLoc()[0],antt2.getLoc()[1]),white):	
-		gfxdraw.pixel(screen,antt2.getLoc()[0],antt2.getLoc()[1],[0,0,0])
-		antt2.Right()
-	elif equal(checkpixel(antt2.getLoc()[0],antt2.getLoc()[1]),black):
-		gfxdraw.pixel(screen,antt2.getLoc()[0],antt2.getLoc()[1],[255,255,255])
-		antt2.Left()
 	
 	count = count+1
 	pygame.display.flip()
 
-print(count)
+print("Agent took ["+str(count)+"] Iteration")
 pygame.quit()
 
